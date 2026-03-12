@@ -15,8 +15,8 @@ const EmployeeDetails = () => {
   const closeModal = () => setActiveModal(null);
 
   return (
-    <div className="bg-[#F0F3F8] h-full p-4 sm:p-6 flex flex-col">
-      <div className="flex flex-col">
+    <div className="bg-[#F0F3F8] h-full p-4 sm:p-6 flex flex-col overflow-hidden">
+      <div className="flex flex-col flex-shrink-0">
         <Topbar />
 
         <h1 className="text-lg sm:text-xl font-semibold mt-6 mb-5 text-gray-800">
@@ -30,6 +30,7 @@ const EmployeeDetails = () => {
         />
         <EmployeeFilters />
       </div>
+
 
       {/* Table area scrolls while the header/actions stay fixed */}
       <div className="flex-1 overflow-hidden mt-4">

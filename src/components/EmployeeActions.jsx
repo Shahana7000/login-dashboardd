@@ -1,90 +1,86 @@
-
-      {/* <button 
-        onClick={onRegister}
-        className="flex-1 bg-[#157395] text-white py-3 px-6 rounded-md font-medium text-sm hover:bg-[#126280] transition-colors"
-      >
-        Register Employee
-      </button> */}
-import { Button } from "@/components/ui/button"
+import React from "react";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
-  DialogClose,
   DialogContent,
   DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
-import { Field, FieldGroup } from "@/components/ui/field"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+  DialogClose,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
-{/* export function DialogDemo() { */}
 const EmployeeActions = ({ onRegister, onBulkRegister, onBulkUpdate }) => {
-  // return (
-    <div className="bg-white p-4 rounded-lg flex flex-col sm:flex-row gap-3 sm:gap-4 mb-5 shadow-sm">
   return (
-    <Dialog>
-      <form>
+    <div className="bg-white p-4 rounded-lg flex flex-col sm:flex-row gap-3 sm:gap-4 mb-5 shadow-sm">
+      <Dialog>
         <DialogTrigger asChild>
-          <Button variant="outline">Register Employee</Button>
+          <Button className="flex-1 bg-[#157395] hover:bg-[#126280] h-12 text-sm font-medium">
+            Register Employee
+          </Button>
         </DialogTrigger>
-        <DialogContent className="sm:max-w-sm">
+        <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
-            <DialogTitle>Edit profile</DialogTitle>
+            <DialogTitle>Register Employee</DialogTitle>
             <DialogDescription>
-             Add New People to your team to collaborate on projects.
+              Add New People to your team to collaborate on projects.
             </DialogDescription>
           </DialogHeader>
-          <FieldGroup>
-            <Field>
-              <Label htmlFor="name-1">Name</Label>
-              <Input id="name-1" name="name" defaultValue="Pedro Duarte" />
-            </Field>
-            <Field>
-              <Label htmlFor="username-1">Username</Label>
-              <Input id="username-1" name="username" defaultValue="@peduarte" />
-            </Field>
-            <Field>
-              <Label htmlFor="username-1">Username</Label>
-              <Input id="username-1" name="username" defaultValue="@peduarte" />
-            </Field>
-            <Field>
-              <Label htmlFor="username-1">Username</Label>
-              <Input id="username-1" name="username" defaultValue="@peduarte" />
-            </Field>
-            <Field>
-              <Label htmlFor="username-1">Username</Label>
-              <Input id="username-1" name="username" defaultValue="@peduarte" />
-            </Field>
-          </FieldGroup>
+          <div className="grid gap-4 py-4">
+            <div className="grid gap-2">
+              <Label htmlFor="name">Name</Label>
+              <Input id="name" placeholder="Enter full name" />
+            </div>
+            <div className="grid gap-2">
+              <Label htmlFor="email">Email</Label>
+              <Input id="email" type="email" placeholder="Enter email address" />
+            </div>
+            <div className="grid gap-2">
+              <Label htmlFor="phone">Phone Number</Label>
+              <Input id="phone" placeholder="Enter phone number" />
+            </div>
+            <div className="grid gap-2">
+              <Label htmlFor="role">Role</Label>
+              <Input id="role" placeholder="Enter role" />
+            </div>
+          </div>
           <DialogFooter>
             <DialogClose asChild>
               <Button variant="outline">Cancel</Button>
             </DialogClose>
-            <Button type="submit">Save</Button>
+            <Button 
+              className="bg-[#157395] hover:bg-[#126280]"
+              onClick={() => {
+                console.log("Saving...");
+                // In a real app, you'd handle form submission here
+              }}
+            >
+              Save Employee
+            </Button>
           </DialogFooter>
         </DialogContent>
-      </form>
-    </Dialog>
-  )
+      </Dialog>
 
-
-      <button 
+      <Button
+        variant="outline"
         onClick={onBulkRegister}
-        className="flex-1 border border-[#157395] text-[#157395] py-3 px-6 rounded-md font-medium text-sm hover:bg-[#157395]/5 transition-colors"
+        className="flex-1 border-[#157395] text-[#157395] hover:bg-[#157395]/5 h-12 text-sm font-medium"
       >
         Bulk Register
-      </button>
-      <button 
+      </Button>
+
+      <Button
+        variant="outline"
         onClick={onBulkUpdate}
-        className="flex-1 border border-[#157395] text-[#157395] py-3 px-6 rounded-md font-medium text-sm hover:bg-[#157395]/5 transition-colors"
+        className="flex-1 border-[#157395] text-[#157395] hover:bg-[#157395]/5 h-12 text-sm font-medium"
       >
         Bulk Update
-      </button>
+      </Button>
     </div>
-);
+  );
 };
 
 export default EmployeeActions;

@@ -172,6 +172,17 @@ import {
   flexRender
 } from "@tanstack/react-table";
 
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Button } from "@/components/ui/button";
+
 const sampleEmployees = [
   {
     id: 1,
@@ -243,6 +254,27 @@ const EmployeeTable = ({ onDelete }) => {
 
   const columns = [
     {
+      id: "select",
+      header: ({ table }) => (
+        <Checkbox
+          checked={table.getIsAllPageRowsSelected()}
+          onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+          aria-label="Select all"
+          className="translate-y-[2px]"
+        />
+      ),
+      cell: ({ row }) => (
+        <Checkbox
+          checked={row.getIsSelected()}
+          onCheckedChange={(value) => row.toggleSelected(!!value)}
+          aria-label="Select row"
+          className="translate-y-[2px]"
+        />
+      ),
+      enableSorting: false,
+      enableHiding: false,
+    },
+    {
       header: "Full Name",
       accessorKey: "name",
     },
@@ -265,25 +297,31 @@ const EmployeeTable = ({ onDelete }) => {
     {
       header: "Detail",
       cell: () => (
-        <button className="flex items-center gap-1.5 text-[#157395] text-sm hover:underline font-medium">
+        <Button variant="link" className="flex items-center gap-1.5 text-[#157395] text-sm hover:underline font-medium p-0 h-auto">
           <Eye className="w-4 h-4" />
           View
-        </button>
+        </Button>
       ),
     },
     {
       header: "Action",
       cell: () => (
         <div className="flex items-center gap-3">
-          <button className="w-10 h-10 bg-[#f0f7ff] text-[#157395] rounded-full flex items-center justify-center hover:bg-blue-100 transition-colors border border-blue-100/50">
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            className="w-10 h-10 bg-[#f0f7ff] text-[#157395] rounded-full hover:bg-blue-100 border border-blue-100/50"
+          >
             <SquarePen className="w-5 h-5" />
-          </button>
-          <button
+          </Button>
+          <Button
+            variant="ghost"
+            size="icon"
             onClick={onDelete}
-            className="w-10 h-10 bg-[#fff1f1] text-red-500 rounded-full flex items-center justify-center hover:bg-red-100 transition-colors border border-red-100/50"
+            className="w-10 h-10 bg-[#fff1f1] text-red-500 rounded-full hover:bg-red-100 border border-red-100/50"
           >
             <Trash2 className="w-5 h-5" />
-          </button>
+          </Button>
         </div>
       ),
     },
@@ -296,24 +334,17 @@ const EmployeeTable = ({ onDelete }) => {
   });
 
   return (
-    <div className="bg-white rounded-lg shadow-sm overflow-hidden h-full flex flex-col">
-      <div className="overflow-auto flex-1">
-        <table className="w-full text-left min-w-[1000px]">
-          <thead>
-            <tr className="border-b border-gray-200">
-              <th className="sticky top-0 bg-white p-4 w-12 text-center z-20">
-                <input
-                  type="checkbox"
-                  className="w-4 h-4 accent-[#157395] rounded cursor-pointer"
-                />
-              </th>
-
-              {table.getHeaderGroups().map((headerGroup) =>
-                headerGroup.headers.map((header) => (
-                  <th
+    <div className="bg-white rounded-lg shadow-sm border overflow-hidden h-full flex flex-col">
+      <div className="overflow-auto flex-1 relative">
+        <Table className="min-w-[1000px]">
+          <TableHeader className="sticky top-0 bg-white z-10 shadow-sm">
+            {table.getHeaderGroups().map((headerGroup) => (
+              <TableRow key={headerGroup.id} className="hover:bg-transparent border-b border-gray-200">
+                {headerGroup.headers.map((header) => (
+                  <TableHead
                     key={header.id}
-                    className={`sticky top-0 bg-white z-20 py-4 px-3 text-sm font-semibold whitespace-nowrap ${
-                      header.column.columnDef.header === "Full Name"
+                    className={`h-14 py-4 px-3 text-sm font-semibold whitespace-nowrap ${
+                      header.column.id === "name"
                         ? "text-[#157395]"
                         : "text-gray-500"
                     }`}
@@ -322,46 +353,33 @@ const EmployeeTable = ({ onDelete }) => {
                       header.column.columnDef.header,
                       header.getContext()
                     )}
-                  </th>
-                ))
-              )}
-            </tr>
-          </thead>
+                  </TableHead>
+                ))}
+              </TableRow>
+            ))}
+          </TableHeader>
 
-          <tbody>
+          <TableBody>
             {table.getRowModel().rows.map((row) => (
-              <tr
+              <TableRow
                 key={row.id}
                 className="border-b border-gray-100 hover:bg-gray-50/50 transition-colors"
               >
-                <td className="p-4 text-center">
-                  <input
-                    type="checkbox"
-                    className="w-4 h-4 accent-[#157395] rounded cursor-pointer"
-                  />
-                </td>
-
                 {row.getVisibleCells().map((cell) => (
-                  <td
+                  <TableCell
                     key={cell.id}
                     className="py-4 px-3 text-sm text-gray-600 whitespace-nowrap"
                   >
-                    {/* {flexRender(
-                     ( cell.column.columnDef.cell ??
-                        cell.column.columnDef.accessorKey &&
-                        row.original[cell.column.columnDef.accessorKey],
-                      cell.getContext()
-                    )} */}
                     {flexRender(
-  cell.column.columnDef.cell ?? cell.column.columnDef.accessorFn?.(row.original),
-  cell.getContext()
-)}
-                  </td>
+                      cell.column.columnDef.cell,
+                      cell.getContext()
+                    )}
+                  </TableCell>
                 ))}
-              </tr>
+              </TableRow>
             ))}
-          </tbody>
-        </table>
+          </TableBody>
+        </Table>
       </div>
     </div>
   );

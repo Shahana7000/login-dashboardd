@@ -6,11 +6,12 @@ const DashboardLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex h-screen overflow-hidden bg-[#F0F3F8]">
       <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
-      <main className="flex-1 bg-[#F0F3F8] min-w-0 lg:pl-64 flex flex-col overflow-hidden">
-        <div className="max-w-[1800px] mx-auto w-full h-full">
+      <main className="flex-1 min-w-0 lg:pl-64 flex flex-col overflow-hidden relative">
+        <div className="max-w-[1800px] mx-auto w-full h-full flex flex-col overflow-hidden">
           {/* Mobile hamburger - passed down via context or directly */}
+
           <div className="lg:hidden fixed top-4 left-4 z-30">
             <button
               onClick={() => setSidebarOpen(true)}

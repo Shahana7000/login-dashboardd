@@ -8,6 +8,9 @@ import {
   CardContent,
   CardFooter,
 } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 function Signup() {
   const navigate = useNavigate();
@@ -86,172 +89,132 @@ function Signup() {
         {/* Left Side */}
         <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start justify-center">
           <div className="max-w-md flex flex-col items-center lg:items-start">
-
-            <img
-              src={logo}
-              alt="SPARKz Logo"
-              className="w-64 sm:w-80 mb-10"
-            />
-
+            <img src={logo} alt="SPARKz Logo" className="w-64 sm:w-80 mb-10" />
             <h2 className="text-gray-700 text-3xl sm:text-4xl font-normal leading-tight text-center lg:text-left">
               Create your account
               <br />
               and get started!
             </h2>
-
           </div>
         </div>
 
         {/* Right Side Card */}
-        <Card className="w-full lg:w-[460px]">
-
+        <Card className="w-full lg:w-[460px] border-none shadow-none bg-transparent">
           <CardContent className="p-0">
-
-            <div className="bg-[#157395] rounded-xl shadow-2xl p-10 sm:p-12 animate-in fade-in zoom-in duration-300">
-
+            <div className="bg-[#157395] rounded-xl shadow-2xl p-10 sm:p-12 animate-in fade-in zoom-in duration-300 overflow-hidden">
               <form onSubmit={handleSubmit} className="space-y-6">
 
                 {/* Full Name */}
-                <div>
-                  <div className="flex items-center border-b border-white pb-3 gap-4">
-                    <User className="w-6 h-6 text-white flex-shrink-0" />
-
-                    <input
+                <div className="space-y-2">
+                  <div className="flex items-center border-b border-white pb-1 gap-4">
+                    <User className="w-6 h-6 text-white shrink-0" />
+                    <Input
                       type="text"
                       placeholder="Full Name"
                       value={formData.fullName}
-                      onChange={(e) =>
-                        handleChange("fullName", e.target.value)
-                      }
+                      onChange={(e) => handleChange("fullName", e.target.value)}
                       onBlur={() => handleBlur("fullName")}
-                      className="w-full bg-transparent text-white placeholder-white/70 text-lg outline-none"
+                      className="bg-transparent border-none text-white text-lg placeholder:text-white/70 focus-visible:ring-0 h-10 px-0"
                     />
-
                   </div>
-
                   {touched.fullName && errors.fullName && (
-                    <p className="text-yellow-300 text-sm font-medium mt-2">
+                    <p className="text-yellow-300 text-sm font-medium">
                       {errors.fullName}
                     </p>
                   )}
                 </div>
 
                 {/* Email */}
-                <div>
-                  <div className="flex items-center border-b border-white pb-3 gap-4">
-
-                    <Mail className="w-6 h-6 text-white flex-shrink-0" />
-
-                    <input
+                <div className="space-y-2">
+                  <div className="flex items-center border-b border-white pb-1 gap-4">
+                    <Mail className="w-6 h-6 text-white shrink-0" />
+                    <Input
                       type="email"
                       placeholder="Email Address"
                       value={formData.email}
-                      onChange={(e) =>
-                        handleChange("email", e.target.value)
-                      }
+                      onChange={(e) => handleChange("email", e.target.value)}
                       onBlur={() => handleBlur("email")}
-                      className="w-full bg-transparent text-white placeholder-white/70 text-lg outline-none"
+                      className="bg-transparent border-none text-white text-lg placeholder:text-white/70 focus-visible:ring-0 h-10 px-0"
                     />
-
                   </div>
-
                   {touched.email && errors.email && (
-                    <p className="text-yellow-300 text-sm font-medium mt-2">
+                    <p className="text-yellow-300 text-sm font-medium">
                       {errors.email}
                     </p>
                   )}
                 </div>
 
                 {/* Password */}
-                <div>
-                  <div className="flex items-center border-b border-white pb-3 gap-4">
-
-                    <Lock className="w-6 h-6 text-white flex-shrink-0" />
-
-                    <input
+                <div className="space-y-2">
+                  <div className="flex items-center border-b border-white pb-1 gap-4">
+                    <Lock className="w-6 h-6 text-white shrink-0" />
+                    <Input
                       type="password"
                       placeholder="Password"
                       value={formData.password}
-                      onChange={(e) =>
-                        handleChange("password", e.target.value)
-                      }
+                      onChange={(e) => handleChange("password", e.target.value)}
                       onBlur={() => handleBlur("password")}
-                      className="w-full bg-transparent text-white placeholder-white/70 text-lg outline-none"
+                      className="bg-transparent border-none text-white text-lg placeholder:text-white/70 focus-visible:ring-0 h-10 px-0"
                     />
-
                   </div>
-
                   {touched.password && errors.password && (
-                    <p className="text-yellow-300 text-sm font-medium mt-2">
+                    <p className="text-yellow-300 text-sm font-medium">
                       {errors.password}
                     </p>
                   )}
                 </div>
 
                 {/* Confirm Password */}
-                <div>
-                  <div className="flex items-center border-b border-white pb-3 gap-4">
-
-                    <Lock className="w-6 h-6 text-white flex-shrink-0" />
-
-                    <input
+                <div className="space-y-2">
+                  <div className="flex items-center border-b border-white pb-1 gap-4">
+                    <Lock className="w-6 h-6 text-white shrink-0" />
+                    <Input
                       type="password"
                       placeholder="Confirm Password"
                       value={formData.confirmPassword}
-                      onChange={(e) =>
-                        handleChange("confirmPassword", e.target.value)
-                      }
+                      onChange={(e) => handleChange("confirmPassword", e.target.value)}
                       onBlur={() => handleBlur("confirmPassword")}
-                      className="w-full bg-transparent text-white placeholder-white/70 text-lg outline-none"
+                      className="bg-transparent border-none text-white text-lg placeholder:text-white/70 focus-visible:ring-0 h-10 px-0"
                     />
-
                   </div>
-
-                  {touched.confirmPassword &&
-                    errors.confirmPassword && (
-                      <p className="text-yellow-300 text-sm font-medium mt-2">
-                        {errors.confirmPassword}
-                      </p>
-                    )}
+                  {touched.confirmPassword && errors.confirmPassword && (
+                    <p className="text-yellow-300 text-sm font-medium">
+                      {errors.confirmPassword}
+                    </p>
+                  )}
                 </div>
 
                 {/* Sign Up Button */}
-                <button
+                <Button
                   type="submit"
-                  className="w-full py-4 mt-4 bg-white text-[#157395] font-bold text-lg rounded-xl shadow-lg hover:bg-gray-50 active:scale-[0.98] transition-all"
+                  variant="secondary"
+                  className="w-full h-14 bg-white text-[#157395] font-bold text-lg rounded-xl shadow-lg hover:bg-gray-100 transition-all mt-4"
                 >
                   SIGN UP
-                </button>
+                </Button>
 
                 {/* Login Link */}
                 <div className="text-center pt-2">
                   <span className="text-white/70 text-base">
                     Already have an account?{" "}
                   </span>
-
                   <Link
                     to="/"
                     className="text-white text-base font-semibold hover:underline underline"
                   >
                     Login
                   </Link>
-
                 </div>
-
               </form>
-
             </div>
-
           </CardContent>
 
-          <CardFooter className="justify-center mt-12">
+          <CardFooter className="justify-center mt-12 p-0">
             <p className="text-[#157395] text-sm font-medium text-center">
               Copyright @SPARKz 2024. All Rights Reserved
             </p>
           </CardFooter>
-
         </Card>
-
       </div>
     </div>
   );
