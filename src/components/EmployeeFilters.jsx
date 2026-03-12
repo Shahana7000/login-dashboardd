@@ -11,7 +11,7 @@ const EmployeeFilters = () => {
       {/* Top row: Search + Deleted User History */}
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
         {/* Search */}
-        <div className="bg-[#F0F3F8] border-2 px-4 py-2.5 rounded-md w-full sm:w-96 flex items-center gap-3">
+        <div className="bg-[#F0F3F8] border border-gray-300 px-4 py-2.5 rounded-md w-full sm:w-96 flex items-center gap-3">
           <Search className="w-5 h-5 text-gray-400" />
           <input
             type="text"
