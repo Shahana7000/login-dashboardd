@@ -3,22 +3,29 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Forget from './pages/Forget';
 import ResetPassword from './pages/ResetPassword';
+import SendOtp from './pages/SendOtp';
+import UserLogin from './pages/UserLogin';
 import EmployeeDetails from './pages/EmployeeDetails';
 import PracticeManagement from './pages/PracticeManagement';
 import DashboardLayout from './layout/DashboardLayout';
+import AuthLayout from './layout/AuthLayout';
 import './App.css';
-import SendOtp from './pages/SendOtp';
 
 function App() {
   return (
     <Router>
       <Routes>
-        {/* Auth Pages (no sidebar) */}
-        <Route path="/" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path='/forget' element={<Forget />} />
-        <Route path="/otp" element={<SendOtp />} />
-        <Route path="/reset-password" element={<ResetPassword />} />
+        {/* User Login (own layout) */}
+        <Route path="/user-login" element={<UserLogin />} />
+
+        {/* Auth Pages (with AuthLayout) */}
+        <Route element={<AuthLayout />}>
+          <Route path="/" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/forget" element={<Forget />} />
+          <Route path="/otp" element={<SendOtp />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
+        </Route>
 
         {/* Dashboard Pages (with sidebar) */}
         <Route element={<DashboardLayout />}>
