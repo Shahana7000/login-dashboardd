@@ -1,10 +1,13 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Forget from './pages/Forget';
+import ResetPassword from './pages/ResetPassword';
 import EmployeeDetails from './pages/EmployeeDetails';
 import PracticeManagement from './pages/PracticeManagement';
 import DashboardLayout from './layout/DashboardLayout';
 import './App.css';
+import SendOtp from './pages/SendOtp';
 
 function App() {
   return (
@@ -13,6 +16,9 @@ function App() {
         {/* Auth Pages (no sidebar) */}
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path='/forget' element={<Forget />} />
+        <Route path="/otp" element={<SendOtp />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
 
         {/* Dashboard Pages (with sidebar) */}
         <Route element={<DashboardLayout />}>
