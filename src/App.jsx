@@ -23,8 +23,8 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/forget" element={<Forget />} />
-          <Route path="/otp" element={<SendOtp />} />
-          <Route path="/reset-password" element={<ResetPassword />} />
+          <Route path="/otp/:id" element={<SendOtp />} />
+          <Route path="/reset-password/:id" element={<ResetPassword />} />
         </Route>
 
         {/* Dashboard Pages (with sidebar) */}

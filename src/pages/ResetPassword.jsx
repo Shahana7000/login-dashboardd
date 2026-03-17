@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
 import logo from "../assets/image.png";
 
@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 
 function ResetPassword() {
   const navigate = useNavigate();
+  const { id } = useParams(); 
 
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -16,22 +17,36 @@ function ResetPassword() {
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
 
+
+  useEffect(() => {
+    if (!id) {
+      navigate("/");
+    }
+  }, [id, navigate]);
+
   const validate = () => {
     const newErrors = {};
     if (!password.trim()) newErrors.password = "Password is required*";
-    else if (password.length < 6) newErrors.password = "Minimum 6 characters required*";
-    if (!confirmPassword.trim()) newErrors.confirmPassword = "Confirm your password*";
-    else if (password !== confirmPassword) newErrors.confirmPassword = "Passwords do not match*";
+    else if (password.length < 6)
+      newErrors.password = "Minimum 6 characters required*";
+
+    if (!confirmPassword.trim())
+      newErrors.confirmPassword = "Confirm your password*";
+    else if (password !== confirmPassword)
+      newErrors.confirmPassword = "Passwords do not match*";
+
     return newErrors;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const newErrors = validate();
     setErrors(newErrors);
     setTouched({ password: true, confirmPassword: true });
+
     if (Object.keys(newErrors).length === 0) {
-      navigate("/");
+      navigate("/"); 
     }
   };
 
@@ -81,11 +96,18 @@ function ResetPassword() {
                   onClick={() => setShowPassword(!showPassword)}
                   className="text-white/70 hover:bg-white/10 hover:text-white shrink-0 h-8 w-8"
                 >
-                  {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                  {showPassword ? (
+                    <EyeOff className="w-4 h-4" />
+                  ) : (
+                    <Eye className="w-4 h-4" />
+                  )}
                 </Button>
               </div>
+
               {touched.password && errors.password && (
-                <p className="text-yellow-300 text-xs font-medium">{errors.password}</p>
+                <p className="text-yellow-300 text-xs font-medium">
+                  {errors.password}
+                </p>
               )}
             </div>
 
@@ -107,11 +129,18 @@ function ResetPassword() {
                   onClick={() => setShowConfirm(!showConfirm)}
                   className="text-white/70 hover:bg-white/10 hover:text-white shrink-0 h-8 w-8"
                 >
-                  {showConfirm ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                  {showConfirm ? (
+                    <EyeOff className="w-4 h-4" />
+                  ) : (
+                    <Eye className="w-4 h-4" />
+                  )}
                 </Button>
               </div>
+
               {touched.confirmPassword && errors.confirmPassword && (
-                <p className="text-yellow-300 text-xs font-medium">{errors.confirmPassword}</p>
+                <p className="text-yellow-300 text-xs font-medium">
+                  {errors.confirmPassword}
+                </p>
               )}
             </div>
 
@@ -124,12 +153,16 @@ function ResetPassword() {
             </Button>
 
             <div className="text-center">
-              <Link to="/" className="text-white font-semibold underline text-sm hover:text-white/90">
+              <Link
+                to="/"
+                className="text-white font-semibold underline text-sm hover:text-white/90"
+              >
                 Back to Login Page
               </Link>
             </div>
           </form>
         </div>
+
         <p className="text-[#157395] text-xs font-medium mt-5 text-center">
           Copyright @SPARKz 2024. All Right Reserved
         </p>
