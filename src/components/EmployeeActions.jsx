@@ -13,7 +13,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-const EmployeeActions = ({ onRegister, onBulkRegister, onBulkUpdate }) => {
+const EmployeeActions = ({onBulkRegister, onBulkUpdate }) => {
   return (
     <div className="bg-white p-4 rounded-lg flex flex-col sm:flex-row gap-3 sm:gap-4 mb-5 shadow-sm">
       <Dialog>

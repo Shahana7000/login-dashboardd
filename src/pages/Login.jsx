@@ -196,7 +196,7 @@ function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white p-6 lg:p-12">
+    <div className="min-h-screen flex items-center justify-center bg-white p-6 lg:p-12 ">
       <div className="w-full max-w-[1400px] flex flex-col lg:flex-row items-center justify-between gap-16">
         {/* LEFT SIDE */}
         <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start">

@@ -10,7 +10,7 @@ import ExportModal from "../components/modals/ExportModal";
 import PracticeDeleteModal from "../components/modals/PracticeDeleteModal";
 
 const PracticeManagement = () => {
-  const [activeModal, setActiveModal] = useState(null); // 'create', 'upload', 'export', 'delete'
+  const [activeModal, setActiveModal] = useState(null); 
   const [selectedPractice, setSelectedPractice] = useState(null);
 
   const closeModal = () => {
@@ -21,7 +21,7 @@ const PracticeManagement = () => {
   const handleCreate = () => setActiveModal('create');
   const handleEdit = (practice) => {
     setSelectedPractice(practice);
-    setActiveModal('create'); // Assuming edit uses the same modal for simplicity
+    setActiveModal('create'); 
   };
   const handleDownload = (practice) => {
     setSelectedPractice(practice);
