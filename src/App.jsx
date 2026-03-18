@@ -5,6 +5,9 @@ import Forget from './pages/Forget';
 import ResetPassword from './pages/ResetPassword';
 import SendOtp from './pages/SendOtp';
 import UserLogin from './pages/UserLogin';
+import UserForget from './pages/UserForget';
+import UserOtp from './pages/UserOtp';
+import UserResetPassword from './pages/UserResetPassword';
 import EmployeeDetails from './pages/EmployeeDetails';
 import PracticeManagement from './pages/PracticeManagement';
 import DashboardLayout from './layout/DashboardLayout';
@@ -15,12 +18,13 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* User Login (own layout) */}
-        <Route path="/user-login" element={<UserLogin />} />
-
         {/* Auth Pages (with AuthLayout) */}
         <Route element={<AuthLayout />}>
           <Route path="/" element={<Login />} />
+          <Route path="/user-login" element={<UserLogin />} />
+          <Route path="/user-forget" element={<UserForget />} />
+          <Route path="/user-otp/:id" element={<UserOtp />} />
+          <Route path="/user-reset-password/:id" element={<UserResetPassword />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/forget" element={<Forget />} />
           <Route path="/otp/:id" element={<SendOtp />} />

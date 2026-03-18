@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Mail, Lock, Eye, EyeOff } from "lucide-react";
-import logo from "../assets/image.png";
+import AuthLeftPanel from "../components/AuthLeftPanel";
 
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -45,14 +45,15 @@ function Login() {
   return (
     <>
       {/* LEFT SIDE */}
-      <div className="w-full lg:w-[420px] flex flex-col items-center lg:items-start shrink-0">
-        <img src={logo} alt="SPARKz Logo" className="w-56 sm:w-64 mb-6" />
-        <h2 className="text-gray-500 text-2xl sm:text-[28px] font-normal leading-snug text-center lg:text-left">
-          Welcome, we are glad to
-          <br />
-          see you again!
-        </h2>
-      </div>
+      <AuthLeftPanel
+        heading={
+          <>
+            Welcome, we are glad to
+            <br />
+            see you again!
+          </>
+        }
+      />
 
       {/* RIGHT SIDE */}
       <div className="w-full lg:w-[420px] flex flex-col items-center">

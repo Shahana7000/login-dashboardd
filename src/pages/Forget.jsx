@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Mail } from "lucide-react";
-import logo from "../assets/image.png";
-
+import AuthLeftPanel from "../components/AuthLeftPanel";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
 function Forget() {
   const navigate = useNavigate();
-
   const [email, setEmail] = useState("");
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
@@ -23,13 +21,11 @@ function Forget() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const newErrors = validate();
     setErrors(newErrors);
     setTouched({ email: true });
 
     if (Object.keys(newErrors).length === 0) {
-    
       navigate(`/otp/${encodeURIComponent(email)}`);
     }
   };
@@ -41,42 +37,42 @@ function Forget() {
 
   return (
     <>
-      {/* LEFT SIDE */}
-      <div className="w-full lg:w-[420px] flex flex-col items-center lg:items-start shrink-0">
-        <img src={logo} alt="SPARKz Logo" className="w-56 sm:w-64 mb-6" />
-        <h2 className="text-gray-500 text-2xl sm:text-[28px] font-normal leading-snug text-center lg:text-left">
-          Lorem ipsum dolor sit
-          <br />
-          amet consectetur.
-        </h2>
-      </div>
+      <AuthLeftPanel
+        isUser={false}
+        heading={
+          <>
+            Lorem ipsum dolor sit
+            <br />
+            amet consectetur.
+          </>
+        }
+      />
 
-      {/* RIGHT SIDE */}
       <div className="w-full lg:w-[420px] flex flex-col items-center">
         <div className="w-full bg-[#157395] rounded-xl p-8 sm:p-10 shadow-2xl">
-          <h3 className="text-white text-xl font-semibold text-center mb-2">
-            Forgot Password?
+          <h3 className="text-2xl font-bold mb-2 text-white text-center">
+            Forget Password
           </h3>
-          <p className="text-white/60 text-xs text-center mb-8">
+          <p className="text-xs mb-10 text-white/60 text-center">
             Lorem ipsum dolor sit amet consectetur.
           </p>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-8">
             <div className="space-y-1.5">
               <div className="flex items-center border-b border-white/80 pb-1 gap-3">
-                <Mail className="w-5 h-5 text-white shrink-0" />
                 <Input
                   type="email"
                   placeholder="Enter Email Address"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   onBlur={handleBlur}
-                  className="bg-transparent border-none text-white text-sm placeholder:text-white/70 focus-visible:ring-0 h-9 px-0"
+                  className="bg-transparent border-none text-sm text-white placeholder:text-white/70 focus-visible:ring-0 h-9 px-0 shadow-none"
                 />
+                <Mail className="w-5 h-5 shrink-0 text-white" />
               </div>
 
               {touched.email && errors.email && (
-                <p className="text-yellow-300 text-xs font-medium">
+                <p className="text-red-500 text-xs font-medium">
                   {errors.email}
                 </p>
               )}
@@ -84,25 +80,21 @@ function Forget() {
 
             <Button
               type="submit"
-              className="w-full h-12 bg-white/30 hover:bg-white/40 text-white font-bold text-sm rounded-lg transition-all"
+              className="w-full h-12 font-bold text-sm rounded bg-white/30 hover:bg-white/40 text-white transition-all shadow-[0_4px_14px_0_rgba(21,115,149,0.3)]"
             >
               Send OTP
             </Button>
 
-            <div className="text-center">
+            <div className="text-center mt-6">
               <Link
                 to="/"
                 className="text-white font-semibold underline text-sm hover:text-white/90"
               >
-                Back to Login Page
+                Back to login page
               </Link>
             </div>
           </form>
         </div>
-
-        <p className="text-[#157395] text-xs font-medium mt-5 text-center">
-          Copyright @SPARKz 2024. All Right Reserved
-        </p>
       </div>
     </>
   );
