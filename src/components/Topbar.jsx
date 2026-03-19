@@ -17,6 +17,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 
+import logo from '../assets/image.png';
+
 const Topbar = () => {
   const navigate = useNavigate();
 
@@ -25,7 +27,13 @@ const Topbar = () => {
   };
 
   return (
-    <div className="flex justify-end items-center gap-4 py-2 sm:py-4">
+    <div className="flex justify-between items-center gap-4 py-2 sm:py-4">
+      {/* Logo for Mobile */}
+      <div className="lg:hidden flex items-center gap-2">
+        <img src={logo} alt="SPARKZ" className="h-8" />
+      </div>
+
+      <div className="flex-1 flex justify-end items-center gap-4">
       {/* Fullscreen Icon */}
       <Button 
         variant="outline" 
@@ -50,6 +58,7 @@ const Topbar = () => {
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <button
+            onClick={() => navigate('/profile')}
             className="w-10 h-10 sm:w-11 sm:h-11 rounded-full overflow-hidden shadow-sm hover:shadow-md transition-shadow border-2 border-white focus:outline-none"
           >
             <img
@@ -60,7 +69,10 @@ const Topbar = () => {
           </button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-56 p-2 rounded-xl border-none shadow-2xl mt-1">
-          <DropdownMenuItem className="flex items-center gap-3 py-3 px-3 rounded-lg cursor-pointer text-gray-600 focus:bg-blue-50/50 focus:text-[#157395] transition-colors">
+          <DropdownMenuItem 
+            onClick={() => navigate('/profile')}
+            className="flex items-center gap-3 py-3 px-3 rounded-lg cursor-pointer text-gray-600 focus:bg-blue-50/50 focus:text-[#157395] transition-colors"
+          >
             <div className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center">
               <User className="w-5 h-5 text-gray-400" />
             </div>
@@ -77,6 +89,7 @@ const Topbar = () => {
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
+      </div>
     </div>
   );
 };

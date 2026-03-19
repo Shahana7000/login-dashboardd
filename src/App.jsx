@@ -10,6 +10,10 @@ import UserOtp from './pages/UserOtp';
 import UserResetPassword from './pages/UserResetPassword';
 import EmployeeDetails from './pages/EmployeeDetails';
 import PracticeManagement from './pages/PracticeManagement';
+import Profile from './pages/Profile';
+import WorkCentre from './pages/WorkCentre';
+import UsersPage from './pages/Users';
+import NotFound from './pages/NotFound';
 import DashboardLayout from './layout/DashboardLayout';
 import AuthLayout from './layout/AuthLayout';
 import './App.css';
@@ -33,15 +37,18 @@ function App() {
 
         {/* Dashboard Pages (with sidebar) */}
         <Route element={<DashboardLayout />}>
-          <Route path="/dashboard" element={<EmployeeDetails />} />
+          <Route path="/dashboard" element={<Navigate to="/work-centre" replace />} />
+          <Route path="/work-centre" element={<WorkCentre />} />
           <Route path="/employee-details" element={<EmployeeDetails />} />
           <Route path="/roles-permission" element={<EmployeeDetails />} />
           <Route path="/team-management" element={<EmployeeDetails />} />
           <Route path="/add-location" element={<EmployeeDetails />} />
           <Route path="/practice-management" element={<PracticeManagement />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/users" element={<UsersPage />} />
         </Route>
 
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import Sidebar from './Sidebard';
+import Topbar from '../components/Topbar';
 
 const DashboardLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -9,7 +10,7 @@ const DashboardLayout = () => {
     <div className="flex h-screen overflow-hidden bg-[#F0F3F8]">
       <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
       <main className="flex-1 min-w-0 lg:pl-64 flex flex-col overflow-hidden relative">
-        <div className="max-w-[1800px] mx-auto w-full h-full flex flex-col overflow-hidden">
+        <div className="max-w-[1800px] mx-auto w-full h-full flex flex-col overflow-hidden px-4 sm:px-6">
           {/* Mobile hamburger - passed down via context or directly */}
 
           <div className="lg:hidden fixed top-4 left-4 z-30">
@@ -22,7 +23,10 @@ const DashboardLayout = () => {
               </svg>
             </button>
           </div>
-          <div className="h-full">
+          
+          <Topbar />
+          
+          <div className="flex-1 overflow-hidden">
             <Outlet />
           </div>
         </div>

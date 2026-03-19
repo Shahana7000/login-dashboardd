@@ -14,12 +14,13 @@ import {
 import logo from '../assets/image.png';
 
 const menuItems = [
-  { name: 'Dashboard', icon: LayoutDashboard, path: '/dashboard' },
+  { name: 'Work centre', icon: LayoutDashboard, path: '/work-centre' },
   { name: 'Employee Details', icon: Users, path: '/employee-details' },
   { name: 'Roles & Permission', icon: Settings2, path: '/roles-permission' },
   { name: 'Team Management', icon: Network, path: '/team-management' },
   { name: 'Add Location', icon: MapPin, path: '/add-location' },
   { name: 'Practice Management', icon: Pill, path: '/practice-management' },
+  { name: 'Users', icon: Users, path: '/users' },
 ];
 
 const Sidebar = ({ isOpen, onClose }) => {

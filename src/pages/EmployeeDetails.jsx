@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Topbar from "../components/Topbar";
 import EmployeeActions from "../components/EmployeeActions";
 import EmployeeFilters from "../components/EmployeeFilters";
 import EmployeeTable from "../components/EmployeeTable";
@@ -15,9 +14,8 @@ const EmployeeDetails = () => {
   const closeModal = () => setActiveModal(null);
 
   return (
-    <div className="bg-[#F0F3F8] h-full p-4 sm:p-6 flex flex-col overflow-hidden">
+    <div className="bg-[#F0F3F8] h-full py-4 flex flex-col overflow-hidden">
       <div className="flex flex-col flex-shrink-0">
-        <Topbar />
 
         <h1 className="text-lg sm:text-xl font-semibold mt-6 mb-5 text-gray-800">
           Employee Details

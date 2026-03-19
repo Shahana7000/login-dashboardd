@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Topbar from "../components/Topbar";
 import PracticeActions from "../components/PracticeActions";
 import PracticeTable from "../components/PracticeTable";
 
@@ -37,9 +36,8 @@ const PracticeManagement = () => {
   };
 
   return (
-    <div className="bg-[#F0F3F8] min-h-screen p-4 sm:p-6 flex flex-col overflow-hidden">
+    <div className="bg-[#F0F3F8] flex flex-col overflow-hidden">
       <div className="flex flex-col flex-shrink-0">
-        <Topbar />
 
         <div className="flex flex-col sm:flex-row sm:items-center justify-between mt-6 mb-8 gap-4">
           <h1 className="text-xl sm:text-2xl font-semibold text-[#157395]">
