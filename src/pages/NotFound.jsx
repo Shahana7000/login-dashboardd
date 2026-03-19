@@ -15,9 +15,9 @@ const NotFound = () => {
   return (
     <div className="min-h-screen w-full bg-white flex flex-col relative overflow-hidden">
       {/* Logo Section */}
-      <div className="absolute top-8 left-8">
+      {/* <div className="absolute top-8 left-8">
         <img src={logo} alt="SPARKZ" className="h-10 sm:h-12" />
-      </div>
+      </div> */}
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col items-center justify-center px-4">

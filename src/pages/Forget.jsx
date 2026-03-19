@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Mail } from "lucide-react";
-import AuthLeftPanel from "../components/AuthLeftPanel";
+import AuthLeftPanel from "../components/AuthLeftpanel";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 

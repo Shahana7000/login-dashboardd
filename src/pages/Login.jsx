@@ -44,7 +44,6 @@ function Login() {
 
   return (
     <>
-      {/* LEFT SIDE */}
       <AuthLeftPanel
         heading={
           <>

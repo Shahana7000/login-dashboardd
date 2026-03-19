@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Mail } from "lucide-react";
-import AuthLeftPanel from "../components/AuthLeftPanel";
+import UserLeftPanel from "../components/UserLeftPanel";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
@@ -24,7 +24,6 @@ function UserForget() {
     const newErrors = validate();
     setErrors(newErrors);
     setTouched({ email: true });
-
     if (Object.keys(newErrors).length === 0) {
       navigate(`/user-otp/${encodeURIComponent(email)}`);
     }
@@ -37,34 +36,42 @@ function UserForget() {
 
   return (
     <>
-      <AuthLeftPanel
-        isUser={true}
-        heading="Lorem ipsum dolor sit amet consectetur."
+      {/* LEFT PANEL */}
+      <UserLeftPanel
+        heading="To keep connected with largest commerce company in the world"
+        subheading="We are glad to see you again! Get access to your orders, Wishlist and Recommendation."
       />
 
-      <div className="flex-1 flex flex-col items-center justify-center p-8 sm:p-12 lg:p-16 relative h-screen bg-white lg:w-1/2">
-        <div className="w-full max-w-[400px]">
-          <h3 className="text-2xl font-bold mb-2 text-[#157395]">
-            Forget Password
-          </h3>
-          <p className="text-xs mb-10 text-gray-400">
-            Lorem ipsum dolor sit amet consectetur.
+      {/* RIGHT PANEL */}
+      <div className="flex-1 flex flex-col items-center justify-center px-8 sm:px-10 py-10 relative bg-white overflow-y-auto">
+        <div className="w-full max-w-[320px]">
+          <h2 className="text-[#157395] text-[26px] font-bold mb-2">
+            Forgot Password
+          </h2>
+          <p className="text-gray-400 text-sm mb-8">
+            Enter your registered email to receive an OTP.
           </p>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="space-y-1.5 pt-2">
-              <div className="flex items-center border-b border-gray-200 focus-within:border-[#157395] pb-1 gap-3">
+          <form onSubmit={handleSubmit} className="space-y-5">
+            {/* EMAIL */}
+            <div className="space-y-1.5">
+              <div
+                className={`flex items-center border rounded-sm px-3 py-2 gap-2 bg-white transition-all ${
+                  touched.email && errors.email
+                    ? "border-red-400"
+                    : "border-gray-300 focus-within:border-[#157395]"
+                }`}
+              >
                 <Input
                   type="email"
                   placeholder="Enter Email Address"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   onBlur={handleBlur}
-                  className="bg-transparent border-none text-[15px] placeholder:text-gray-400 focus-visible:ring-0 h-10 px-0 shadow-none text-gray-900"
+                  className="bg-transparent border-none text-gray-700 text-[13.5px] placeholder:text-gray-400 focus-visible:ring-0 h-9 px-0 flex-1 shadow-none"
                 />
-                <Mail className="w-5 h-5 shrink-0 text-[#157395]" />
+                <Mail className="w-[18px] h-[18px] text-[#157395] shrink-0" />
               </div>
-
               {touched.email && errors.email && (
                 <p className="text-red-500 text-xs font-medium">
                   {errors.email}
@@ -72,25 +79,27 @@ function UserForget() {
               )}
             </div>
 
-            <div className="pt-2">
+            {/* SEND OTP BUTTON */}
+            <div className="pt-1">
               <Button
                 type="submit"
-                className="h-11 px-12 bg-[#157395] hover:bg-[#126280] text-white font-bold text-[15px] rounded transition-all shadow-[0_4px_14px_0_rgba(21,115,149,0.3)]"
+                className="h-11 px-14 bg-[#157395] hover:bg-[#126280] text-white font-bold text-[14px] rounded-sm transition-all shadow-md"
               >
                 Send OTP
               </Button>
             </div>
 
-            <div className="pt-4 flex flex-col gap-2">
+            {/* LINKS */}
+            <div className="pt-2 flex flex-col gap-2">
               <Link
                 to="/user-login"
-                className="text-[#157395] font-bold underline text-[13px] hover:text-[#126280] transition-colors"
+                className="text-[#157395] font-bold text-[13px] underline hover:text-[#126280] transition-colors"
               >
                 Back to login page
               </Link>
               <Link
                 to="/"
-                className="text-[#157395] font-bold text-[13px] hover:underline transition-colors"
+                className="text-[#157395] font-bold text-[13px] underline hover:text-[#126280] transition-colors"
               >
                 Admin?
               </Link>
@@ -98,11 +107,9 @@ function UserForget() {
           </form>
         </div>
 
-        <div className="absolute bottom-6 w-full text-center">
-          <p className="text-gray-400 text-[11px] font-medium">
-            Copyright @SPARKz 2024. All Right Reserved
-          </p>
-        </div>
+        <p className="text-gray-400 text-[10px] font-medium mt-8 text-center">
+          Copyright @SPARKz 2024. All Right Reserved
+        </p>
       </div>
     </>
   );
