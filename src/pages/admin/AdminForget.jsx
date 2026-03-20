@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Mail } from "lucide-react";
-import AdminLeftpanel from "../../components/Auth/AdminLeftpanel";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 

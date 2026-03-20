@@ -11,7 +11,7 @@ import {
   InputOTPSlot,
 } from "@/components/ui/input-otp";
 import { cn } from "@/lib/utils";
-import AdminLeftPanel from "@/components/Auth/AdminLeftpanel";
+
 
 function SendOtp() {
   const [otp, setOtp] = useState("");

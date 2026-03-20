@@ -46,7 +46,7 @@ function UserLogin() {
      
 
       {/* RIGHT PANEL */}
-      <div className="flex-1 flex flex-col items-center justify-center px-8 sm:px-10 py-10 relative bg-white overflow-y-auto">
+      <div className="flex-1 flex flex-col items-center justify-center px-4 sm:px-10 py-10 relative bg-white overflow-y-auto">
         <div className="w-full max-w-[320px]">
           <h2 className="text-[#157395] text-[26px] font-bold mb-8">
             Log In

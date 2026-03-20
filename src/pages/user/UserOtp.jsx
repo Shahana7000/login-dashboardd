@@ -58,7 +58,10 @@ function UserOtp() {
                     <InputOTPSlot
                       key={i}
                       index={i}
-                      className="w-12 h-12 sm:w-14 sm:h-14 text-xl font-bold rounded-sm border-2 border-gray-300 text-[#157395] focus:border-[#157395] focus:ring-0 transition-all bg-white"
+                      className="w-12 h-12 sm:w-14 sm:h-14 text-xl font-bold rounded-lg 
+                    bg-white text-[#157395] border-gray border-[#157395]
+                    focus:outline-none focus-visible:ring-0 focus-visible:ring-offset-0
+                    data-[active=true]:ring-0 data-[active=true]:ring-offset-0 data-[active=true]:border-[#157395]"
                     />
                   ))}
                 </InputOTPGroup>
