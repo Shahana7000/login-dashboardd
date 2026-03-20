@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Mail } from "lucide-react";
-import AuthLeftPanel from "../components/AuthLeftpanel";
+import AdminLeftpanel from "../../components/Auth/AdminLeftpanel";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
@@ -37,16 +37,7 @@ function Forget() {
 
   return (
     <>
-      <AuthLeftPanel
-        isUser={false}
-        heading={
-          <>
-            Lorem ipsum dolor sit
-            <br />
-            amet consectetur.
-          </>
-        }
-      />
+     
 
       <div className="w-full lg:w-[420px] flex flex-col items-center">
         <div className="w-full bg-[#157395] rounded-xl p-8 sm:p-10 shadow-2xl">
@@ -80,7 +71,7 @@ function Forget() {
 
             <Button
               type="submit"
-              className="w-full h-12 font-bold text-sm rounded bg-white/30 hover:bg-white/40 text-white transition-all shadow-[0_4px_14px_0_rgba(21,115,149,0.3)]"
+              className="w-full h-12 font-bold text-sm rounded-lg bg-white text-[#157395] transition-all shadow-[0_4px_14px_0_rgba(21,115,149,0.3)]"
             >
               Send OTP
             </Button>

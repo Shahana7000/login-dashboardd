@@ -1,8 +1,8 @@
 
 
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate, useParams, useLocation } from "react-router-dom";
-import AuthLeftPanel from "../components/AuthLeftPanel";
+import { Link, useNavigate, useParams } from "react-router-dom";
+
 import { Button } from "@/components/ui/button";
 
 import {
@@ -11,6 +11,7 @@ import {
   InputOTPSlot,
 } from "@/components/ui/input-otp";
 import { cn } from "@/lib/utils";
+import AdminLeftPanel from "@/components/Auth/AdminLeftpanel";
 
 function SendOtp() {
   const [otp, setOtp] = useState("");
@@ -36,7 +37,7 @@ function SendOtp() {
 
   return (
     <>
-      <AuthLeftPanel heading={`OTP sent to: ${decodeURIComponent(id || "")}`} />
+      
 
       <div className="w-full lg:w-[420px] flex flex-col items-center">
         <div className="w-full bg-[#157395] rounded-xl p-8 sm:p-10 shadow-2xl">
@@ -49,14 +50,17 @@ function SendOtp() {
 
           <div className="space-y-8">
             <div className="flex justify-center">
-              <InputOTP maxLength={4} value={otp} onChange={setOtp}>
+              <InputOTP maxLength={4} value={otp} onChange={setOtp} className="focus:outline-none">
                 <InputOTPGroup className="gap-3 sm:gap-4">
                   {[0, 1, 2, 3].map((i) => (
                     <InputOTPSlot
                       key={i}
-                      index={i}
-                      className="w-12 h-12 sm:w-14 sm:h-14 text-xl font-bold rounded-lg border-transparent bg-white text-[#157395]"
-                    />
+                      index={i} 
+                    className="w-12 h-12 sm:w-14 sm:h-14 text-xl font-bold rounded-lg 
+                    bg-[#157395] text-white border border-white/30
+                    focus:outline-none focus-visible:ring-0 focus-visible:ring-offset-0
+                    data-[active=true]:ring-0 data-[active=true]:ring-offset-0 data-[active=true]:border-white"
+                            />
                   ))}
                 </InputOTPGroup>
               </InputOTP>
@@ -78,7 +82,7 @@ function SendOtp() {
 
             <Button
               onClick={() => navigate(`/reset-password/${id}`)}
-              className="w-full h-12 font-bold text-sm rounded bg-white text-[#157395] transition-all"
+              className="w-full h-12 font-bold text-sm  bg-white text-[#157395] transition-all rounded-lg"
             >
               Verify
             </Button>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import UserLeftPanel from "../components/UserLeftPanel";
+import UserLeftpanel from '../../components/Auth/UserLeftpanel'
 import { Button } from "@/components/ui/button";
 import {
   InputOTP,
@@ -34,10 +34,7 @@ function UserOtp() {
   return (
     <>
       {/* LEFT PANEL */}
-      <UserLeftPanel
-        heading="To keep connected with largest commerce company in the world"
-        subheading="We are glad to see you again! Get access to your orders, Wishlist and Recommendation."
-      />
+      
 
       {/* RIGHT PANEL */}
       <div className="flex-1 flex flex-col items-center justify-center px-8 sm:px-10 py-10 relative bg-white overflow-y-auto">

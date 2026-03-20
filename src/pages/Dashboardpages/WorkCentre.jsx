@@ -88,7 +88,7 @@ const WorkCentre = () => {
     <Input
       placeholder="Search"
       className="
-        h-[42px]
+        h-[32px]
         w-full
         pl-9
         bg-white
@@ -103,11 +103,11 @@ const WorkCentre = () => {
   </div>
 
   {/* SELECT */}
-  <Select>
+  <Select className='w-4 h-4'>
     <SelectTrigger
       className="
         w-[340px]
-        h-[42px]
+        h-[70px]
         bg-white
         border border-[#E6E6E6]
         rounded-md
@@ -127,19 +127,17 @@ const WorkCentre = () => {
     </SelectContent>
   </Select>
 
-
-
-        </div>
-
-        {/* MULTIPLE BUTTON */}
-        <Button
+<Button
           variant="outline"
-          className="text-[#157395] border-[#157395] hover:bg-[#157395]/5 h-10 px-4 rounded-md flex gap-2 items-center shadow-sm text-[13px] font-semibold"
+          className="text-[#157395] border-[#157395] hover:bg-[#157395] hover:text-white h-[32px] px-4 rounded-md flex gap-2 items-center shadow-sm text-[13px] font-semibold"
         >
           <Layers className="w-4 h-4" />
           Multiple selection
         </Button>
 
+        </div>
+
+      
       </div>
 
       {/* TABLE CARD */}

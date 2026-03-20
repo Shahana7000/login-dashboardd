@@ -1,17 +1,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import logo from '../assets/image.png';
 
-import errorImage from '../assets/404error.png';
+
+import errorImage from '../../assets/404error.png';
 
 const NotFound = () => {
   const navigate = useNavigate();
 
-  const handleRefresh = () => {
-    window.location.reload();
-  };
-
+ 
   return (
     <div className="min-h-screen w-full bg-white flex flex-col relative overflow-hidden">
       {/* Logo Section */}

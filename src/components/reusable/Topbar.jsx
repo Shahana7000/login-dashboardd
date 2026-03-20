@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 
-import logo from '../assets/image.png';
+import logo from '../../assets/image.png'
 
 const Topbar = () => {
   const navigate = useNavigate();
@@ -84,6 +84,7 @@ const Topbar = () => {
           >
             <div className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center">
               <LogOut className="w-4 h-4 text-gray-400" />
+                   
             </div>
             <span className="font-medium text-[13px]">Log Out</span>
           </DropdownMenuItem>

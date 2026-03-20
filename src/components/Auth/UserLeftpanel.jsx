@@ -1,8 +1,8 @@
-import logo from "../assets/image1.png"; // apna logo path update karna
+import logo from "../../assets/sparxz.png"; 
 
-function UserLeftPanel({ heading, subheading }) {
+function UserLeftPanel() {
   return (
-    <div className="w-full lg:w-[42%] shrink-0 bg-[#157395] flex flex-col p-8 sm:p-10 lg:p-12">
+    <div className="w-full h-screen lg:w-[42%] shrink-0 bg-[#157395] flex flex-col p-8 sm:p-10 lg:p-12 ">
       {/* Logo top */}
       <div className="flex items-center gap-2">
         <img
@@ -18,13 +18,27 @@ function UserLeftPanel({ heading, subheading }) {
       {/* Heading + subheading - thoda neeche logo se, upar se */}
       <div className="mt-10">
         <h1 className="text-white font-bold text-2xl sm:text-[1.75rem] leading-snug max-w-[260px]">
-          {heading}
+         To keep
+         <br/>
+          connected
+          <br/>
+          with largest
+          <br/>
+          commerce
+          <br/>
+           company in
+           <br/>
+           the world
         </h1>
-        {subheading && (
+        {/* {subheading && ( */}
           <p className="text-white/70 text-xs mt-4 max-w-[240px] leading-relaxed">
-            {subheading}
+            We are glad to see you again!
+            <br/>
+             Get access to your orders,
+             <br/>
+              Wishlist and Recommendation.
           </p>
-        )}
+        {/* )} */}
       </div>
     </div>
   );

@@ -1,1 +1,4 @@
 /* App-level styles - using Tailwind utility classes in components */
+body{
+    background-image: url('./assets/laptop-bg.jpg');
+}

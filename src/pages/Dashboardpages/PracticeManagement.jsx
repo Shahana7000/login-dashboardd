@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import PracticeActions from "../components/PracticeActions";
-import PracticeTable from "../components/PracticeTable";
+import PracticeActions from '../../components/PracticeActions'
+import PracticeTable from "../../components/PracticeTable";
 
 // Modals
-import PracticeCreationModal from "../components/modals/PracticeCreationModal";
-import UploadModal from "../components/modals/UploadModal";
-import ExportModal from "../components/modals/ExportModal";
-import PracticeDeleteModal from "../components/modals/PracticeDeleteModal";
+import PracticeCreationModal from "../../components/modals/PracticeCreationModal"
+import UploadModal from "../../components/modals/UploadModal"
+import ExportModal from "../../components/modals/ExportModal";
+import PracticeDeleteModal from "../../components/modals/PracticeDeleteModal";
 
 const PracticeManagement = () => {
   const [activeModal, setActiveModal] = useState(null); 

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import EmployeeActions from "../components/EmployeeActions";
-import EmployeeFilters from "../components/EmployeeFilters";
-import EmployeeTable from "../components/EmployeeTable";
+import EmployeeActions from '../../components/EmployeeActions'
+import EmployeeFilters from "../../components/EmployeeFilters";
+import EmployeeTable from "../../components/EmployeeTable";
 
 // Modals
-import RegisterEmployeeModal from "../components/modals/RegisterEmployeeModal";
-import BulkActionModal from "../components/modals/BulkActionModal";
-import DeleteAlertModal from "../components/modals/DeleteAlertModal";
+import RegisterEmployeeModal from '../../components/modals/RegisterEmployeeModal';
+import BulkActionModal from "../../components/modals/BulkActionModal"
+import DeleteAlertModal from "../../components/modals/DeleteAlertModal"
 
 const EmployeeDetails = () => {
   const [activeModal, setActiveModal] = useState(null); // 'register', 'bulk-register', 'bulk-update', 'delete'

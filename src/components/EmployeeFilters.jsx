@@ -77,9 +77,9 @@ const EmployeeFilters = () => {
         {/* Export */}
         <Button 
           variant="outline" 
-          className="h-10 border-[#157395]/20 text-[#157395] hover:bg-[#157395]/5 px-5 font-medium gap-2"
+          className="h-[32px] border-[#157395]/20 text-[#157395] hover:bg-[#157395]/5 px-5 font-medium gap-2"
         >
-          <Download className="w-5 h-5" />
+          <Download className="w-4 h-[32px]" />
           Export
         </Button>
 

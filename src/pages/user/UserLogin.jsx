@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Mail, Eye, EyeOff } from "lucide-react";
-import UserLeftPanel from "../components/UserLeftPanel";
+import UserLeftpanel from '../../components/Auth/UserLeftpanel'
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
@@ -43,10 +43,7 @@ function UserLogin() {
   return (
     <>
       {/* LEFT PANEL */}
-      <UserLeftPanel
-        heading="To keep connected with largest commerce company in the world"
-        subheading="We are glad to see you again! Get access to your orders, Wishlist and Recommendation."
-      />
+     
 
       {/* RIGHT PANEL */}
       <div className="flex-1 flex flex-col items-center justify-center px-8 sm:px-10 py-10 relative bg-white overflow-y-auto">
@@ -59,7 +56,7 @@ function UserLogin() {
             {/* EMAIL */}
             <div className="space-y-1.5">
               <div
-                className={`flex items-center border rounded-sm px-3 py-2 gap-2 bg-white transition-all ${
+                className={`flex items-center border-b  px-3 py-2 gap-2 bg-white transition-all ${
                   touched.email && errors.email
                     ? "border-red-400"
                     : "border-gray-300 focus-within:border-[#157395]"
@@ -85,7 +82,7 @@ function UserLogin() {
             {/* PASSWORD */}
             <div className="space-y-1.5">
               <div
-                className={`flex items-center border rounded-sm px-3 py-2 gap-2 bg-white transition-all ${
+                className={`flex items-center border-b  px-3 py-2 gap-2 bg-white transition-all ${
                   touched.password && errors.password
                     ? "border-red-400"
                     : "border-gray-300 focus-within:border-[#157395]"

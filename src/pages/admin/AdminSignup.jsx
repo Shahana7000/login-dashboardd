@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { User, Mail, Lock } from "lucide-react";
-import AuthLeftPanel from "../components/AuthLeftPanel"; 
+
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import AdminLeftPanel from "../../components/Auth/AdminLeftpanel"
 
 function Signup() {
   const navigate = useNavigate();
@@ -52,16 +53,8 @@ function Signup() {
 
   return (
     <>
-      {/* LEFT SIDE */}
-      <AuthLeftPanel
-        heading={
-          <>
-            Create your account
-            <br />
-            and get started!
-          </>
-        }
-      />
+     
+      
 
       {/* RIGHT SIDE */}
       <div className="w-full lg:w-[420px] flex flex-col items-center">

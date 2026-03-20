@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Mail, Lock, Eye, EyeOff } from "lucide-react";
-import AuthLeftPanel from "../components/AuthLeftPanel";
+import AdminLeftPanel from "@/components/Auth/AdminLeftpanel";
 
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -44,15 +44,7 @@ function Login() {
 
   return (
     <>
-      <AuthLeftPanel
-        heading={
-          <>
-            Welcome, we are glad to
-            <br />
-            see you again!
-          </>
-        }
-      />
+    
 
       {/* RIGHT SIDE */}
       <div className="w-full lg:w-[420px] flex flex-col items-center">

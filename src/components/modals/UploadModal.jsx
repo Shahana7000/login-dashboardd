@@ -22,7 +22,7 @@ const UploadModal = ({ isOpen, onClose }) => {
             onClick={onClose}
             className="absolute right-0 top-0 text-gray-400 hover:text-gray-600"
           >
-            <X className="w-5 h-5" />
+            {/* <X className="w-5 h-5" /> */}
           </button>
         </DialogHeader>
 
